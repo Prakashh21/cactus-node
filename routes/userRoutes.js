@@ -1,10 +1,11 @@
 const express = require("express")
 const { registerUser, loginUser, currentUser, allUsers } = require("../controllers/userRoutes")
+const tokenHandler = require("../middleware/validateTokenHandler")
 const router = express.Router()
 
 router.post("/register",registerUser)
       .post("/login",loginUser)
-      .post("/current",currentUser)
+      .get("/current", tokenHandler, currentUser)
       .get("/allUsers",allUsers)
 
 

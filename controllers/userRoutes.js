@@ -68,7 +68,7 @@ const loginUser = asyncHandler(async (req , res) => {
 })
 
 const currentUser = asyncHandler(async (req , res) => {
-    res.json({message: "current user"})
+    return res.json({message: "current user"})
 })
 
 const allUsers = asyncHandler(async(req ,res) => {
