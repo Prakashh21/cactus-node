@@ -57,7 +57,7 @@ const loginUser = asyncHandler(async (req , res) => {
                 },
             },
             process.env.TOKEN_SECRET,
-            {expiresIn: "1m"}
+            {expiresIn: "15m"}
             );
         res.status(200).json({ accessToken })
     }else{  
@@ -68,7 +68,7 @@ const loginUser = asyncHandler(async (req , res) => {
 })
 
 const currentUser = asyncHandler(async (req , res) => {
-    return res.json({message: "current user"})
+    return res.json({message: "current user", data: req.user})
 })
 
 const allUsers = asyncHandler(async(req ,res) => {
